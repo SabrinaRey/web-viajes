@@ -1,108 +1,53 @@
-import React, { useState, useEffect } from 'react'
-import {BrowserRouter as Router, Route, Link, Switch, useHistory } from 'react-router-dom'
+import React, { useState } from 'react';
+import { useHistory, Route } from 'react-router-dom';
+import CardContainer from './CardContainer';
 
+const Main = () => {
+  const [buscado, setBuscado] = useState({
+    origin: '',
+    departureDate: '',
+    returnDate: '',
+    duration: 0,
+    priceMax: 0,
+    passenger: 0,
+    flydirection:'roundtrip',
+  })
 
-const Main = () =>{
-    const [origenBuscado , setOrigenBuscado] = useState("MAD")
-    const [accessToken, setAccessToken] = useState("")
-     const [resultados, setResultados] =useState([])
+  let history = useHistory();
 
-     let history = useHistory();
-  
-     
-    const toUrlEncoded = obj => Object.keys(obj).map(k => encodeURIComponent(k) + '=' + encodeURIComponent(obj[k])).join('&');
-  
-  // datos para obtener el access token
-  const item = {
-   grant_type: 'client_credentials',
-   client_id: 'dx3lEK0ruziTIsWbAFvWvHN5RaoQrR7K',
-   client_secret: 'DmWSjOhyOWDpTGYZ'
-  };
-  
-  // hacemos el fetch a la API para solicitar el nuevo access token
-  useEffect (() => {fetch('https://test.api.amadeus.com/v1/security/oauth2/token', {
-     method: 'post',
-     headers: {
-       "Content-Type": "application/x-www-form-urlencoded"
-     },
-     body: toUrlEncoded(item)
-   })
-   .then(res => res.json())
-   .then(data => setAccessToken(data.access_token))
-  }, [])
-  
-     // cuando la API nos responde, podemos guardarnos ese código que vamos a utilizarlo para hacer el fetch a la API de Amadeus
-     // como este token vence cada cierto tiempo, por seguridad, siempre vamos a tener que obtener uno nuevo antes de llamar a la API
-  
-     
-    
-  
-  
-     
-    //  // haga el pedido a la API de Amadeus para obtener unos vuelvos de ejemplo
-    //  fetch('https://test.api.amadeus.com/v2/shopping/flight-offers?originLocationCode=SYD&destinationLocationCode=BKK&departureDate=2020-11-01&returnDate=2020-11-15&adults=2', {
-    //      // el header es para enviarle ese token a la API
-    //      headers: {
-    //        'Authorization': `Bearer ${accessToken}`
-    //      }
-    //    })
-    //    .then(res => res.json())
-    //    .then(data => {
-    //      // cuando la API nos responde, obtenemos el objeto general que tiene todos los datos
-    //      console.log(data)
-    //    })
+  const handleChange = e => {
+    if (e.target.name === "flydirection") {
+      setBuscado({ ...buscado, [e.target.name]: e.target.value})
+    }
+    else {
+      setBuscado({ ...buscado, [e.target.name]: e.target.value })
+    }
    
-   
-  
-   
-   
-  
+  }
 
-    const handleChange = e => {
-        setOrigenBuscado(e.target.value)
-        console.log(origenBuscado)
-      }
-     
-      const handleSubmit = e => {
-       e.preventDefault()
-       
-       
-       fetch(`https://test.api.amadeus.com/v1/shopping/flight-destinations?origin=${origenBuscado}`, {
-        // el header es para enviarle ese token a la API
-        headers: {
-          'Authorization': `Bearer ${accessToken}`
-        }
-      })
-         .then(res => res.json())
-         .then(data=> setResultados(data))
-         
-     }
-     
-     const handleClick = () => {
-             
-       history.push(`/resultados/${origenBuscado}`)
-     
-     }
-      
-    return (
-        <div className="App">
-      <form onSubmit = {handleSubmit}>
-        <input onChange = {handleChange} type= "text" placeholder="Origen"></input>
-        Duración <input type= "number" min="0" step="1" onChange = {handleChange} placeholder="Duración"></input>
-        Monto Máximo <input type= "number" min="0"  onChange = {handleChange} placeholder="Monto Máximo"></input>
-        Fecha de Inicio<input type= "date" placeholder="Fecha de Inicio" onChange = {handleChange}></input>
-        Fecha de Finalización <input type= "date" placeholder="Fecha de Finalización" onChange = {handleChange}></input>
-      <input  type ="submit" value="Buscar" onClick={handleClick}></input> 
+  const handleSubmit = e => {
+    e.preventDefault()
+  }
+
+  const handleClick = () => {
+    history.push(`/resultados/${buscado.origin}`)
+  }
+  console.log(buscado)
+  return (
+    <div className="App">
+      <form onSubmit={handleSubmit}>
+        <input onChange={handleChange} type="text" name="origin" placeholder="Origen"></input>
+        Duración <input type="number" name="duration" min="0" step="1" onChange={handleChange} placeholder="Duración"></input>
+        Monto Máximo <input type="number" name="priceMax" min="0" onChange={handleChange} placeholder="Monto Máximo"></input>
+        Fecha de Inicio<input type="date" name="departureDate" placeholder="Fecha de Inicio" onChange={handleChange}></input>
+        Fecha de Finalización <input type="date" min="0" step="1" name="returnDate" placeholder="Fecha de Finalización" onChange={handleChange}></input>
+        Pasajeros<input type="number" name="passenger" onChange={handleChange}></input>
+        Solo ida<input type="radio" name="flydirection" onChange={handleChange} value='oneway' checked={buscado.flydirection === 'oneway'}/>
+        Ida y vuelta<input type="radio" name="flydirection" onChange={handleChange} value='roundtrip' checked={buscado.flydirection === 'roundtrip'}/>
+        <input type="submit" value="Buscar" onClick={handleClick}></input>
       </form>
-
-      
-
-      
-     
-      
+      <Route  path={`/results/${buscado}`} component={CardContainer}></Route>
     </div>
-    )
+  )
 }
-
-
-export default Main
+export default Main;

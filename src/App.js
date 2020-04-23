@@ -6,20 +6,10 @@ import {BrowserRouter as Router, Route, Link, Switch, useHistory } from 'react-r
 
 const  App = () => {
  
- 
-
-
   return (
     <Router>
     <Main/>
-      <Route  path="/resultados/:origenBuscado" component={CardContainer}></Route>
-
-
-      
      
-      
-   
-
     </Router>
   );
 }
