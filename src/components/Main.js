@@ -1,6 +1,87 @@
 import React, { useState } from 'react';
 import { useHistory, Route } from 'react-router-dom';
 import CardContainer from './CardContainer';
+import styled from 'styled-components'
+
+const Nav = styled.nav `
+display: flex;
+height: 100px;
+justify-content: space-around;
+font-size: 20px;
+
+        h3:hover{
+          color:#d5e1df;
+        }
+        h6:hover{
+          color:#d5e1df;
+        }
+
+
+`
+
+
+const Div = styled.div `
+height: 75%;
+`
+
+const FormDiv = styled.div `
+display:flex;
+justify-content: center;
+
+`
+const Titulo = styled.h1`
+font-family: 'Roboto', helvetica, Arial, sans-serif;
+margin: 0;
+font-weight: 200;
+font-size:36px;
+color: #fff;
+text-align:center;
+padding-bottom: 15px;
+
+`
+
+const Form = styled.form `
+   input {
+     height:20px;
+    border-radius: 3px;
+    margin: 5px;
+    font-family: 'Roboto', helvetica, Arial, sans-serif;
+      }
+      input:hover{
+        background-color:#c2d4dd;
+        
+        
+      }
+
+      .submit {
+        background-color: #034f84;
+        height: 30px;
+        color:#fff;
+       margin-left: 40px;
+
+      }
+`
+
+const Choice = styled.div `
+margin-left: 15px;
+
+
+`
+
+
+const Footer = styled.footer `
+display: flex;
+   h6 {
+     margin: 20px;
+     font-size: 15px;
+   }
+
+ h6:hover{
+  color:#d5e1df;
+}
+
+`
+
 
 const Main = () => {
   const [buscado, setBuscado] = useState({
@@ -10,19 +91,19 @@ const Main = () => {
     duration: 0,
     priceMax: 0,
     passenger: 0,
-    flydirection:'roundtrip',
+    flydirection: 'roundtrip',
   })
 
   let history = useHistory();
 
   const handleChange = e => {
     if (e.target.name === "flydirection") {
-      setBuscado({ ...buscado, [e.target.name]: e.target.value})
+      setBuscado({ ...buscado, [e.target.name]: e.target.value })
     }
     else {
       setBuscado({ ...buscado, [e.target.name]: e.target.value })
     }
-   
+
   }
 
   const handleSubmit = e => {
@@ -34,20 +115,43 @@ const Main = () => {
   }
   console.log(buscado)
   return (
-    <div className="App">
-      <form onSubmit={handleSubmit}>
+    <>
+    <Nav>
+      <h3>CoolTrip</h3>
+      <h6>Vuelos</h6>
+      <h6>Hoteles</h6>
+      <h6>Autos</h6>
+    </Nav>
+    <Div>
+      <Titulo>Encuentra el mejor destino para tu bolsillo</Titulo>
+      <FormDiv>
+  
+      <Form onSubmit={handleSubmit}>
+      <Choice>
+       Solo Ida<input type="radio" name="flydirection" onChange={handleChange} value='oneway' checked={buscado.flydirection === 'oneway'} />
+      Ida y Vuelta<input type="radio" name="flydirection" onChange={handleChange} value='roundtrip' checked={buscado.flydirection === 'roundtrip'} />
+      </Choice>
         <input onChange={handleChange} type="text" name="origin" placeholder="Origen"></input>
-        Duración <input type="number" name="duration" min="0" step="1" onChange={handleChange} placeholder="Duración"></input>
-        Monto Máximo <input type="number" name="priceMax" min="0" onChange={handleChange} placeholder="Monto Máximo"></input>
-        Fecha de Inicio<input type="date" name="departureDate" placeholder="Fecha de Inicio" onChange={handleChange}></input>
-        Fecha de Finalización <input type="date" min="0" step="1" name="returnDate" placeholder="Fecha de Finalización" onChange={handleChange}></input>
-        Pasajeros<input type="number" name="passenger" onChange={handleChange}></input>
-        Solo ida<input type="radio" name="flydirection" onChange={handleChange} value='oneway' checked={buscado.flydirection === 'oneway'}/>
-        Ida y vuelta<input type="radio" name="flydirection" onChange={handleChange} value='roundtrip' checked={buscado.flydirection === 'roundtrip'}/>
-        <input type="submit" value="Buscar" onClick={handleClick}></input>
-      </form>
-      <Route  path={`/results/:buscado`} component={CardContainer}></Route>
-    </div>
+         <input type="number" name="duration" min="0" step="1" onChange={handleChange} placeholder="Duración"></input>
+         <input type="number" name="priceMax" min="0" onChange={handleChange} placeholder="Monto Máximo"></input>
+        <input type="date" name="departureDate" placeholder="Fecha de Inicio" onChange={handleChange}></input>
+        <input type="date" min="0" step="1" name="returnDate" placeholder="Fecha de Finalización" onChange={handleChange}></input>
+      <input type="number" name="passenger" placeholder= "Cant.Pasajeros" onChange={handleChange}></input>
+      
+     
+      <input className = "submit" type="submit" value="Buscar Vuelos" onClick={handleClick}></input>
+      
+       
+      </Form>
+      </FormDiv>
+      <Route path={`/results/:buscado`} component={CardContainer}></Route>
+    </Div>
+    <Footer>
+      <h6>Sobre Nosotras</h6>
+      <h6>Contactenos</h6>
+      
+    </Footer>
+    </>
   )
 }
 export default Main;
