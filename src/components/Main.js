@@ -30,7 +30,7 @@ const Main = () => {
   }
 
   const handleClick = () => {
-    history.push(`/resultados/${buscado.origin}`)
+    history.push(`/results/origin=${buscado.origin}&departureDate=${buscado.departureDate}&oneWay=false&duration=${buscado.duration}&nonStop=false&maxPrice=${buscado.priceMax}`)
   }
   console.log(buscado)
   return (
@@ -46,7 +46,7 @@ const Main = () => {
         Ida y vuelta<input type="radio" name="flydirection" onChange={handleChange} value='roundtrip' checked={buscado.flydirection === 'roundtrip'}/>
         <input type="submit" value="Buscar" onClick={handleClick}></input>
       </form>
-      <Route  path={`/results/${buscado}`} component={CardContainer}></Route>
+      <Route  path={`/results/:buscado`} component={CardContainer}></Route>
     </div>
   )
 }

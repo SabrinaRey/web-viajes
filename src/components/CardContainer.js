@@ -25,7 +25,7 @@ const CardContainer = (props) => {
         })
             .then(res => res.json())
             .then(data =>{
-            fetch(`https://test.api.amadeus.com/v1/shopping/flight-destinations?origin=${props.match.params.buscado}`, {
+            fetch(`https://test.api.amadeus.com/v1/shopping/flight-destinations?${props.match.params.buscado}`, {
                 // el header es para enviarle ese token a la API
                 headers: {
                     'Authorization': `Bearer ${data.access_token}`
@@ -58,3 +58,6 @@ const CardContainer = (props) => {
 export default CardContainer;
 
 // https://test.api.amadeus.com/v1/shopping/flight-destinations?origin=MAD&oneWay=false&duration=10&nonStop=false
+
+//https://test.api.amadeus.com/v1/shopping/
+//flight-destinations?origin=MAD&departureDate=2020-05-20&oneWay=false&duration=10&nonStop=false&maxPrice=3000

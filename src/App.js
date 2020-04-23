@@ -9,7 +9,8 @@ const  App = () => {
   return (
     <Router>
     <Main/>
-     
+    <Route  path={`/results/:buscado`} component={CardContainer}></Route>
+
     </Router>
   );
 }
