@@ -5,9 +5,13 @@ import CardContainer from './components/CardContainer'
 import {BrowserRouter as Router, Route, Link, Switch, useHistory } from 'react-router-dom'
 import styled from 'styled-components'
 import background from './components/img/nice.jpg'
+import Nav from './components/Nav'
+import Footer from './components/Footer'
+
 
 const Principal = styled.div`
 border: 1px solid #000;
+height: auto;
 background-image: url(${background});
 position: absolute;
     top: 0;
@@ -23,10 +27,12 @@ const  App = () => {
  
   return (
     <Principal>
+       <Nav/>
     <Router>
     <Main/>
-    <Route  path={`/results/:buscado`} component={CardContainer}></Route>
-    </Router>
+    <Footer/>
+      </Router>
+     
     </Principal>
   );
 }

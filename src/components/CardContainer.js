@@ -1,8 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import Card from './Card';
+import styled from 'styled-components';
+
+
+
+
+const Resultados = styled.div`
+display:flex;
+justify-content: center;
+flex-wrap:wrap;
+
+
+`
+
 
 const CardContainer = (props) => {
-    console.log(props)
+    // console.log(props)
     const [resultados, setResultados] = useState([])
 
     const toUrlEncoded = obj => Object.keys(obj).map(k => encodeURIComponent(k) + '=' + encodeURIComponent(obj[k])).join('&');
@@ -37,7 +50,9 @@ const CardContainer = (props) => {
     }, [])
     console.log(resultados)
     return (
-        <div>
+        <>
+       
+        <Resultados>
         { resultados.data &&
             resultados.data.map((element, i) =>(
                 <Card
@@ -50,7 +65,9 @@ const CardContainer = (props) => {
                 />
             ))
         }
-        </div>
+        </Resultados>
+        
+         </>
     )
 
 }

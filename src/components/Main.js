@@ -3,21 +3,8 @@ import { useHistory, Route } from 'react-router-dom';
 import CardContainer from './CardContainer';
 import styled from 'styled-components'
 
-const Nav = styled.nav `
-display: flex;
-height: 100px;
-justify-content: space-around;
-font-size: 20px;
-
-        h3:hover{
-          color:#d5e1df;
-        }
-        h6:hover{
-          color:#d5e1df;
-        }
 
 
-`
 
 
 const Div = styled.div `
@@ -69,18 +56,7 @@ margin-left: 15px;
 `
 
 
-const Footer = styled.footer `
-display: flex;
-   h6 {
-     margin: 20px;
-     font-size: 15px;
-   }
 
- h6:hover{
-  color:#d5e1df;
-}
-
-`
 
 
 const Main = () => {
@@ -90,7 +66,7 @@ const Main = () => {
     returnDate: '',
     duration: 0,
     priceMax: 0,
-    passenger: 0,
+    passenger: 1,
     flydirection: 'roundtrip',
   })
 
@@ -108,6 +84,8 @@ const Main = () => {
 
   const handleSubmit = e => {
     e.preventDefault()
+    
+   
   }
 
   const handleClick = () => {
@@ -116,12 +94,8 @@ const Main = () => {
   console.log(buscado)
   return (
     <>
-    <Nav>
-      <h3>CoolTrip</h3>
-      <h6>Vuelos</h6>
-      <h6>Hoteles</h6>
-      <h6>Autos</h6>
-    </Nav>
+   
+      
     <Div>
       <Titulo>Encuentra el mejor destino para tu bolsillo</Titulo>
       <FormDiv>
@@ -144,13 +118,11 @@ const Main = () => {
        
       </Form>
       </FormDiv>
-      <Route path={`/results/:buscado`} component={CardContainer}></Route>
+      <Route  path={`/results/:buscado`} component={CardContainer}></Route>
     </Div>
-    <Footer>
-      <h6>Sobre Nosotras</h6>
-      <h6>Contactenos</h6>
+   
       
-    </Footer>
+    
     </>
   )
 }
