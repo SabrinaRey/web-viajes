@@ -3,6 +3,7 @@ import styled from 'styled-components'
 
 const FooterDiv = styled.footer `
 display: flex;
+position:relative;
    h6 {
      margin: 20px;
      font-size: 15px;

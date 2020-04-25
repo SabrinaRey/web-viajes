@@ -1,12 +1,18 @@
 import React, { useState, useEffect } from 'react';
+import {useParams} from 'react-router-dom'
 import Card from './Card';
 import styled from 'styled-components';
+// import schedule from './img/schedule.jpg'
+
+
+
+
 
 
 
 
 const Resultados = styled.div`
-display:flex;
+  display:flex;
 justify-content: center;
 flex-wrap:wrap;
 
@@ -15,16 +21,19 @@ flex-wrap:wrap;
 
 
 const CardContainer = (props) => {
-    // console.log(props)
+    console.log(props)
     const [resultados, setResultados] = useState([])
+
+    const getParams = useParams()
+    
 
     const toUrlEncoded = obj => Object.keys(obj).map(k => encodeURIComponent(k) + '=' + encodeURIComponent(obj[k])).join('&');
 
     // datos para obtener el access token
     const item = {
         grant_type: 'client_credentials',
-        client_id: 'dx3lEK0ruziTIsWbAFvWvHN5RaoQrR7K',
-        client_secret: 'DmWSjOhyOWDpTGYZ'
+        client_id: 'G4opffdaykKrLfnlAoMeclSRxUulEB3S',
+        client_secret: 'process.env.REACT_APP_API_KEY'
     };
 
     // hacemos el fetch a la API para solicitar el nuevo access token
@@ -38,7 +47,7 @@ const CardContainer = (props) => {
         })
             .then(res => res.json())
             .then(data =>{
-            fetch(`https://test.api.amadeus.com/v1/shopping/flight-destinations?${props.match.params.buscado}`, {
+            fetch(`https://test.api.amadeus.com/v1/shopping/flight-destinations?${getParams.buscado}`, {
                 // el header es para enviarle ese token a la API
                 headers: {
                     'Authorization': `Bearer ${data.access_token}`
@@ -46,9 +55,11 @@ const CardContainer = (props) => {
             })
                 .then(res => res.json())
                 .then(data => setResultados(data))
+                // .catch(error => console.log(error))
             }) 
-    }, [])
-    console.log(resultados)
+           
+    }, [getParams.buscado])
+    
     return (
         <>
        
