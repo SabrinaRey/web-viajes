@@ -1,13 +1,15 @@
 import React, {useState} from 'react';
 import styled from 'styled-components';
-import { useHistory, Route } from 'react-router-dom';
-import {useLocation} from 'react-router-dom'
+import { useHistory } from 'react-router-dom';
+import Info from './Info'
 
 const FormDiv = styled.div`
+
 display:flex;
 justify-content: center;
-
-`
+flex-direction:column;
+align-items:center;
+margin: 50px;`
 
 
 const Formulario = styled.form`
@@ -18,16 +20,16 @@ const Formulario = styled.form`
     font-family: 'Roboto', helvetica, Arial, sans-serif;
       }
       input:hover{
-        background-color:#c2d4dd;
+        background-color:#99ccff;
         
         
       }
 
       .submit {
-        background-color: #034f84;
+        background-color: #0033cc;
         height: 30px;
         color:#fff;
-       margin-left: 40px;
+       margin-left: 20px;
 
       }
 `
@@ -37,8 +39,7 @@ margin-left: 15px;
 
 
 `
-const DivAdd = styled.div`
-height:500px;`
+
 
 
 
@@ -52,7 +53,7 @@ const Form = () => {
     duration: 0,
     priceMax: 0,
     // passenger: 1,
-    // oneWay: true,
+    oneWay: true,
   })
 
   const toUrlEncoded = obj => {
@@ -114,7 +115,7 @@ const Form = () => {
 
 
                 </Formulario>
-                {locationHome == "/" && <DivAdd/>}
+                {locationHome == "/" && <Info/>}
             </FormDiv>
 
         </>

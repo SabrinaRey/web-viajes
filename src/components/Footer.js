@@ -4,12 +4,15 @@ import styled from 'styled-components'
 const FooterDiv = styled.footer `
 display: flex;
 position:relative;
-   h6 {
+   a {
      margin: 20px;
+     font-family:'Roboto', helvetica, Arial, sans-serif;
      font-size: 15px;
+     color:#0033cc;
+     text-decoration: none;
    }
 
- h6:hover{
+ a:hover{
   color:#d5e1df;
 }
 
@@ -19,8 +22,8 @@ position:relative;
 const Footer = () => {
     return (
         <FooterDiv>
-            <h6>Sobre Nosotras</h6>
-      <h6>Contactenos</h6>
+            <a href=" ">Sobre Nosotras</a>
+      <a href="">Contactenos</a>
         </FooterDiv>
     );
 };

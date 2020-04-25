@@ -1,5 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
+import { FaPlaneDeparture, FaPlaneArrival,  FaMoneyBillAlt } from "react-icons/fa";
+
+
 
 
 const DivCard =styled.div`
@@ -8,7 +11,7 @@ width: 60%;
 justify-content: space-around;
 margin: 20px;
 border: 1px solid grey;
-color: white;
+color: #d5e1df;
 border-radius:5px;
 display:flex;
 font-family: 'Roboto', helvetica, Arial, sans-serif;
@@ -46,17 +49,17 @@ const Card = ({ origin, destination, departureDate, returnDate, price }) => {
        
         <DivCard>
             <div>
-                <h4>Origen: {origin}</h4>
+                <h4> <FaPlaneDeparture/>Origen: {origin}</h4>
                 <p><span>Fecha de Salida: </span>{departureDate}</p>
                 </div>
            
             <div>
-                <h4>Destino: {destination}</h4>
+                <h4><FaPlaneArrival/>Destino: {destination}</h4>
                 <p><span>Fecha de Regreso: </span>{returnDate}</p>
                 </div>
             
             <div>
-                <span><p className="price">Price: ${price}</p></span>
+                <span><p className="price">Price: <FaMoneyBillAlt/>{price}</p></span>
                 <input className="submit" type="submit" value ="Seleccionar"/>
                 </div>
             

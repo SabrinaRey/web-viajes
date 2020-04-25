@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import {useParams} from 'react-router-dom'
 import Card from './Card';
 import styled from 'styled-components';
-// import schedule from './img/schedule.jpg'
+// import backgroundCard from './img/dondequieras.jpg' 
 
 
 
@@ -15,6 +15,7 @@ const Resultados = styled.div`
   display:flex;
 justify-content: center;
 flex-wrap:wrap;
+
 
 
 `
@@ -32,8 +33,8 @@ const CardContainer = (props) => {
     // datos para obtener el access token
     const item = {
         grant_type: 'client_credentials',
-        client_id: 'G4opffdaykKrLfnlAoMeclSRxUulEB3S',
-        client_secret: 'process.env.REACT_APP_API_KEY'
+        client_id: 'yFccJ58lomQWDAkZ0dHFxW36vKgSYgGe',
+        client_secret: 'REACT_APP_API_KEY'
     };
 
     // hacemos el fetch a la API para solicitar el nuevo access token
