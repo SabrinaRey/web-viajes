@@ -17,10 +17,10 @@ display:flex;
 font-family: 'Roboto', helvetica, Arial, sans-serif;
 
 .submit {
-    background-color: #034f84;
-    height: 30px;
-    color:#fff;
-   margin-left: 40px;
+    background-color: #0033cc;
+        height: 30px;
+        color:#fff;
+       margin-left: 20px;
 
   }
 span {

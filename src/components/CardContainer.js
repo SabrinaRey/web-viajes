@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import {useParams} from 'react-router-dom'
 import Card from './Card';
 import styled from 'styled-components';
-// import backgroundCard from './img/dondequieras.jpg' 
+// import backgroundCard from './img/heart.jpg' 
+
 
 
 
@@ -12,6 +13,7 @@ import styled from 'styled-components';
 
 
 const Resultados = styled.div`
+
   display:flex;
 justify-content: center;
 flex-wrap:wrap;
@@ -24,6 +26,7 @@ flex-wrap:wrap;
 const CardContainer = (props) => {
     console.log(props)
     const [resultados, setResultados] = useState([])
+    const [error, setError] = useState(null);
 
     const getParams = useParams()
     
@@ -48,7 +51,7 @@ const CardContainer = (props) => {
         })
             .then(res => res.json())
             .then(data =>{
-            fetch(`https://test.api.amadeus.com/v1/shopping/flight-destinations?${getParams.buscado}`, {
+            fetch(`https://test.api.amadeus.com/v1/shopping/flight-destinations?${getParams.params}`, {
                 // el header es para enviarle ese token a la API
                 headers: {
                     'Authorization': `Bearer ${data.access_token}`
@@ -56,10 +59,11 @@ const CardContainer = (props) => {
             })
                 .then(res => res.json())
                 .then(data => setResultados(data))
+                .catch(err => setError(err))
                 // .catch(error => console.log(error))
             }) 
            
-    }, [getParams.buscado])
+    }, [getParams.params])
     
     return (
         <>

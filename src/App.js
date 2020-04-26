@@ -5,7 +5,7 @@ import styled from 'styled-components'
 import background from './components/img/background.jpg'
 import Nav from './components/Nav'
 import Footer from './components/Footer'
-import Form from './components/Form'
+import FormTest from './components/FormTest'
 
 
 
@@ -42,9 +42,9 @@ const  App = () => {
     <Principal>
        <Nav/>   
            <Titulo>Encuentra el mejor destino para tu presupuesto</Titulo>
-           <Route   path={`/`} component={Form}></Route>
+           <Route   path={`/`} component={FormTest}></Route>
           
-      <Route  path={`/results/:buscado`} component={CardContainer}></Route>
+      <Route   path={`/results/:buscado`} component={CardContainer}></Route>
     <Footer/>
       
     </Principal>

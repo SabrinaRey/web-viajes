@@ -51,7 +51,7 @@ const Form = () => {
     departureDate: '',
     returnDate: '',
     duration: 0,
-    priceMax: 0,
+    maxPrice: 0,
     // passenger: 1,
     oneWay: true,
   })
@@ -106,16 +106,16 @@ const Form = () => {
                     </Choice>
                     <input onChange={handleChange} type="text" name="origin" placeholder="Origen"></input>
                     <input type="number" name="duration" min="0" step="1" onChange={handleChange} placeholder="Duración"></input>
-                    <input type="number" name="priceMax" min="0" onChange={handleChange} placeholder="Monto Máximo"></input>
+                    <input type="number" name="maxPrice" min="0" onChange={handleChange} placeholder="Monto Máximo"></input>
                     <input type="date" name="departureDate" placeholder="Fecha de Inicio" onChange={handleChange}></input>
-                    <input type="date" min="0" step="1" name="returnDate" placeholder="Fecha de Finalización" onChange={handleChange}></input>
+                    <input type="date" min="0" step="1" name="returnDate" placeholder="Fecha de Regreso" onChange={handleChange}></input>
                     {/* <input type="number" name="passenger" min="0" placeholder="Cant.Pasajeros" onChange={handleChange}></input> */}
 
                     <input className="submit" type="submit" value="Buscar Vuelos" onClick={handleClick}></input>
 
 
                 </Formulario>
-                {locationHome == "/" && <Info/>}
+                {locationHome === "/" && <Info/>}
             </FormDiv>
 
         </>
