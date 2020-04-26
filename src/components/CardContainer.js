@@ -37,8 +37,7 @@ const CardContainer = (props) => {
     const item = {
         grant_type: 'client_credentials',
         client_id: process.env.REACT_APP_API_KEY,
-        client_secret: process.env.REACT_APP_API_KEY_SECRET
-        
+        client_secret: process.env.REACT_APP_API_KEY_SECRET    
     };
   
 
@@ -53,7 +52,7 @@ const CardContainer = (props) => {
         })
             .then(res => res.json())
             .then(data =>{
-            fetch(`https://test.api.amadeus.com/v1/shopping/flight-destinations?${getParams.params}`, {
+            fetch(`https://test.api.amadeus.com/v1/shopping/flight-destinations?${getParams.buscado}`, {
                 // el header es para enviarle ese token a la API
                 headers: {
                     'Authorization': `Bearer ${data.access_token}`
@@ -61,12 +60,13 @@ const CardContainer = (props) => {
             })
                 .then(res => res.json())
                 .then(data => setResultados(data))
-                .catch(err => setError(err))
+                //.catch(err => setError(err))
                 // .catch(error => console.log(error))
             }) 
            
-    }, [getParams.params])
+    }, [getParams.buscado])
     
+    console.log(getParams)
     return (
         <>
        

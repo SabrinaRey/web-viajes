@@ -45,7 +45,7 @@ const FormTest = () => {
         origin: '',
         departureDate: '',
         returnDate: '',
-        maxPrice: 0,
+        maxPrice: '',
         oneWay: 'true',
     })
 
@@ -83,19 +83,19 @@ const FormTest = () => {
 
     const handleSubmit = e => {
         e.preventDefault();
-        const { origin, departureDate, returnDate, oneWay } = dataSearch;
+        const { origin, departureDate, returnDate, oneWay, maxPrice } = dataSearch;
         if (oneWay === 'true') {
-            history.push(`/${createQueryParams(dataSearch)}`)
+            history.push(`/results/${createQueryParams(dataSearch)}`)
         }
         else {
             const newObj = {
                 origin,
                 departureDate,
                 duration: dayCounter(departureDate, returnDate),
-                maxPrice: 0,
+                maxPrice,
                 oneWay
             }
-            history.push(`/${createQueryParams(newObj)}`)
+            history.push(`/results/${createQueryParams(newObj)}`)
         }
     }
     console.log(dataSearch)
