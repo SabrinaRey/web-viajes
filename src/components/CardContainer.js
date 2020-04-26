@@ -36,9 +36,11 @@ const CardContainer = (props) => {
     // datos para obtener el access token
     const item = {
         grant_type: 'client_credentials',
-        client_id: 'yFccJ58lomQWDAkZ0dHFxW36vKgSYgGe',
-        client_secret: 'REACT_APP_API_KEY'
+        client_id: process.env.REACT_APP_API_KEY,
+        client_secret: process.env.REACT_APP_API_KEY_SECRET
+        
     };
+  
 
     // hacemos el fetch a la API para solicitar el nuevo access token
     useEffect(() => {
