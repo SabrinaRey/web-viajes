@@ -2,24 +2,13 @@ import React, { useState, useEffect } from 'react';
 import {useParams} from 'react-router-dom'
 import Card from './Card';
 import styled from 'styled-components';
-// import backgroundCard from './img/heart.jpg' 
-
-
-
-
-
-
 
 
 
 const Resultados = styled.div`
-
-  display:flex;
-justify-content: center;
-flex-wrap:wrap;
-
-
-
+ display:flex;
+flex-direction:column;
+align-items:center;
 `
 
 

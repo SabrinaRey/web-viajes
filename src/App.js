@@ -46,7 +46,7 @@ const  App = () => {
            <Titulo>Encuentra el mejor destino para tu presupuesto</Titulo>
            <Route   path={`/`} component={FormTest}></Route>
           
-      <Route   path={`/results/:buscado`} component={CardContainer}></Route>
+      <Route    path={`/results/:buscado`} component={CardContainer}></Route>
     <Footer/>
       
     </Principal>
