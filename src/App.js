@@ -35,9 +35,7 @@ padding-bottom: 15px;
 
 
 const  App = () => {
-  console.log(process.env.REACT_APP_API_KEY)
-  console.log(process.env.REACT_APP_API_KEY_SECRET)
- 
+   
   return (
     <Router>
 

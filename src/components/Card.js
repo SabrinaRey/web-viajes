@@ -63,7 +63,7 @@ const Card = ({ origin, destination, departureDate, returnDate, price }) => {
            
             <div>
                 <h4> <span><FaPlaneArrival/> Destino: </span>{destination}</h4>
-                <p><span> <FaCalendarAlt/> Fecha de Regreso: </span>{returnDate}</p>
+                {returnDate &&<p><span> <FaCalendarAlt/> Fecha de Regreso: </span>{returnDate}</p>}
                 </div>
             
             <div>
