@@ -1,16 +1,23 @@
 import React from 'react';
 import styled from 'styled-components'
 
+
+
 const DivAdd = styled.div`
 font-family: 'Roboto', helvetica, Arial, sans-serif;
 display:flex;
 flex-direction:row;
 margin-top:30px;
+@media (max-width: 860px) {
+    flex-direction: column;
+  }
+
      div{
         margin: 100px 40px 0px 0px;
         width:250px;
         text-align: center;
         font-size:15px;
+    
                     img {
                 height:30%;
                 transition: opacity .4s ease-in-out;
@@ -22,6 +29,7 @@ margin-top:30px;
             text-align:center;
             color:#d5e1df;
         }
+
            
     }`
 
