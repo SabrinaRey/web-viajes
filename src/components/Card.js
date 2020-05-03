@@ -1,10 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
+// No es bueno dejar variables sin usar, como en este caso. Si VSCode las pone en gris, borrenlas!
 import { FaPlaneDeparture, FaPlaneArrival, FaCommentsDollar,  FaDollarSign, FaCalendarAlt, FaLuggageCart } from "react-icons/fa";
 
 
 
-
+// Privilegien usar nombres mas descriptivos que DivCard, y usar article en lugar de div
+// Por otro lado, height auto es innecesario. 
 const DivCard =styled.div`
 height: auto;
 width: 50%;
@@ -39,6 +41,7 @@ span {
 
   
 `
+// Traten de no dejar comentarios como este sueltos en el codigo. 
 
 // const Origen = styled.div`
 // span {
@@ -56,6 +59,7 @@ const Card = ({ origin, destination, departureDate, returnDate, price }) => {
         <>
        
         <DivCard>
+        {/* Estos dos divs a continuacion podrian componentizarse */}
             <div>
                 <h4> <span><FaPlaneDeparture/> Origen:</span> {origin}</h4>
                 <p><span><FaCalendarAlt/> Fecha de Salida: </span> {departureDate}</p>

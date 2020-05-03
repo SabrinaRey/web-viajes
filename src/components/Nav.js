@@ -2,6 +2,8 @@ import React from 'react';
 import styled from 'styled-components'
 import { FaPlane, FaHotel, FaSuitcase, FaDollarSign } from "react-icons/fa";
 
+// Atencion nuevamente al tabulado aquí
+// Algunos estilos se repiten innecesariamente, por ejemplo font-family se hereda de padres a hijos. 
 const Header = styled.header`
 font-family: 'Roboto', helvetica, Arial, sans-serif;
 display:flex;
@@ -66,6 +68,9 @@ const Nav = () => {
       <Header>
            <h1>Cool<span>Trip</span></h1>
          <button>
+         {/* En general si una linea tiene mas de 60 caracteres, optamos por hacer salto de linea, 
+         ya que es muy molesto tener que hacer un scroll horizontal para ver el codigo. 
+         (VSCode nos dice en que caracter estamos en la barra inferior) */}
         Español   <img alt="bandera" src="https://images.skyscnr.com/images/country/flag/header/ar.png"></img>  Argentina  <span><FaDollarSign/>ARS</span>
       </button>
       </Header>
