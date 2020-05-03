@@ -83,6 +83,7 @@ const Form = () => {
       const handleSubmit = e => {
         e.preventDefault()
         setDivExtra(!divExtra)
+        // traten de borrar los console log
         console.log(divExtra)
         
        
@@ -93,8 +94,10 @@ const Form = () => {
         history.push(`/results/${ toUrlEncoded(buscado)}`)
        
       }
+      // traten de borrar los console log
       console.log(buscado)
     //   console.log(locationHome)
+
     return (
         <>
             <FormDiv>

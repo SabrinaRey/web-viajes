@@ -2,7 +2,8 @@ import React from 'react';
 import styled from 'styled-components'
 
 
-
+// Privilegien nombres mas descriptivos que "DivAdd"
+// Recuerden que flex-direction: row es innecesario en flex 
 const DivAdd = styled.div`
 font-family: 'Roboto', helvetica, Arial, sans-serif;
 display:flex;
@@ -36,6 +37,11 @@ margin-top:30px;
 const Info = () => {
     return (
         <DivAdd>
+        {/* este div deberia ser un <article> 
+        Por otro lado, ven que estas tres tarjetas tienen exactamente la misma estructura?
+        Una img, un h2, un p: deberian ser un solo componente llamado tres veces, 
+        que reciba la info via props. 
+        */}
             <div>
                 <img alt="viajero" src="https://js.skyscnr.com/sttc/blackbird/static/media/anywhere.992d8e73.svg"></img>
                 <h2>Encuentra el mejor vuelo o paquete</h2>

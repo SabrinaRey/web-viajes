@@ -27,10 +27,12 @@ background-color: #512c62;
        margin-left: 20px;
 `
 
-
+// Por que usamos props aca? Este componente no las recibe. 
 const CardContainer = (props) => {
+    // Traten de no dejar console log olvidados. 
     console.log(props)
     const [resultados, setResultados] = useState([])
+    // por que declaramos error si no lo usamos? 
     const [error, setError] = useState(null);
     const history =useHistory()
 
@@ -72,6 +74,7 @@ const CardContainer = (props) => {
 
     }, [getParams.buscado])
 
+    // declaramos e como parametro pero no lo usamos: mejor borrarlo. 
     const handleClick = e => {
         history.push("/")
     }
@@ -110,6 +113,9 @@ const CardContainer = (props) => {
 }
 
 export default CardContainer;
+
+// No es bueno dejar comentarios sueltos en el codigo, a menos que cumplan una funcion para el lector
+// (por ejemplo, aclarar que hace una funcion compleja)
 
 // https://test.api.amadeus.com/v1/shopping/flight-destinations?origin=MAD&oneWay=false&duration=10&nonStop=false
 

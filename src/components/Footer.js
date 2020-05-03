@@ -1,6 +1,10 @@
 import React from 'react';
 import styled from 'styled-components'
 
+// Tanto display flex como position relative son innecesarios aqui
+// Flex porque los a son elementos en linea
+// Position relative porque no se esta posicionando nada. 
+// Y ya adivinaron qué opino sobre el nombre FooterDiv, no?
 const FooterDiv = styled.footer `
 display: flex;
 position:relative;

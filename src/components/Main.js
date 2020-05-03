@@ -4,7 +4,7 @@ import CardContainer from './CardContainer';
 import styled from 'styled-components'
 import Form from './Form'
 
-
+// Todo este componente parece ser innecesario. Traten de no dejar archivos asi sueltos en su codigo. 
 
 
 

@@ -3,6 +3,8 @@ import styled from 'styled-components';
 import { useHistory } from 'react-router-dom'
 import Info from './Info'
 
+// Privilegien nombres descriptivos, como "ContenedorForm" a "FormDiv"
+// Usen etiquetas semánticas como <article> o <section> en lugar de <div>
 const FormDiv = styled.div`
 
 display:flex;
@@ -46,6 +48,8 @@ const FormTest = () => {
         departureDate: '',
         returnDate: '',
         maxPrice: '',
+        // por que aca usamos un string y no un booleano? 
+        // Esto puede traer confusiones graves a futuro!
         oneWay: 'true',
     })
 
@@ -68,6 +72,10 @@ const FormTest = () => {
     }
 
     const dayCounter = (date1, date2) => {
+        // traten de usar siempre camelCase para escribir nombres de variables, 
+        // ya que es la convencion en JavaScript. En particular en React, 
+        // React usa la primera mayúscula para saber cuando algo es un componente, 
+        // así que puede traer problemas si es usado en otro lugar. 
         let Difference_In_Time = Date.parse(date2) - Date.parse(date1)
         let days = Difference_In_Time / (1000 * 3600 * 24)
         return days
@@ -84,6 +92,7 @@ const FormTest = () => {
     const handleSubmit = e => {
         e.preventDefault();
         const { origin, departureDate, returnDate, oneWay, maxPrice } = dataSearch;
+        // Si oneway fuera un booleano, podriamos decir directamente if (oneWay)
         if (oneWay === 'true') {
             history.push(`/results/${createQueryParams(dataSearch)}`)
         }
@@ -98,6 +107,7 @@ const FormTest = () => {
             history.push(`/results/${createQueryParams(newObj)}`)
         }
     }
+    // Recuerden siempre borrar los console.log 
     console.log(dataSearch)
     return (
         <FormDiv>
@@ -108,6 +118,8 @@ const FormTest = () => {
             </Choice>
             <input type="text" name="origin" onChange={handleChange} value={dataSearch.origin} placeholder='Origen'></input>
            <input type="date" name="departureDate" onChange={handleChange} value={dataSearch.departureDate} placeholder="Fecha de Inicio"></input>
+           {/* Seria mejor que oneWay fuera un booleano y decir
+           {!dataSearch.oneWay &&  */}
             {dataSearch.oneWay === 'false' &&
                 <label> 
                 <input type="date" name="returnDate" onChange={handleChange} value={dataSearch.returnDate} placeholder="Fecha de Regreso"></input>
