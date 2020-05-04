@@ -4,9 +4,11 @@ Utiliza la Api Amadeus.
 
 
 ### Equipo de Trabajo: 
--Nil de Marco, Tucumán, https://github.com/nildemarco
--Sabrina Reynares, Córdoba, https://github.com/SabrinaRey
--Liliana Belliski, Bahía Blanca, https://github.com/lia1810
+
+- Nil de Marco, Tucumán, https://github.com/nildemarco
+- Sabrina Reynares, Córdoba, https://github.com/SabrinaRey
+- Liliana Belliski, Bahía Blanca, https://github.com/lia1810
+
 
 ### Tecnologías usadas
 La página se estructuró utilizando html,css y react.
