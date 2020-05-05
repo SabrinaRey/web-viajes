@@ -1,11 +1,10 @@
 import React from "react";
 import styled from "styled-components";
 
-const DivAdd = styled.div`
+const ContenedorInformacion = styled.div`
   font-family: "Roboto", helvetica, Arial, sans-serif;
   display: flex;
-  flex-direction: row;
-  margin-top: 30px;
+   margin-top: 30px;
   @media (max-width: 860px) {
     flex-direction: column;
   }
@@ -32,7 +31,7 @@ const DivAdd = styled.div`
 
 const Info = () => {
   return (
-    <DivAdd>
+    <ContenedorInformacion>
       <div>
         <img
           alt="viajero"
@@ -70,7 +69,7 @@ const Info = () => {
           hasta aventuras para recordar.
         </p>
       </div>
-    </DivAdd>
+    </ContenedorInformacion>
   );
 };
 

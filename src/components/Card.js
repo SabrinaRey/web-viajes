@@ -4,10 +4,10 @@ import {
   FaPlaneDeparture,
   FaPlaneArrival,
   FaDollarSign,
-  FaCalendarAlt
+  FaCalendarAlt,
 } from "react-icons/fa";
 
-const DivCard = styled.div`
+const ComponenteTarjeta = styled.div`
   height: auto;
   width: 50%;
   padding: 25px;
@@ -19,6 +19,10 @@ const DivCard = styled.div`
   display: flex;
   font-family: "Roboto", helvetica, Arial, sans-serif;
   box-shadow: 10px 10px 8px #888888;
+
+  @media (max-width: 860px) {
+    flex-direction: column;
+  }
 
   .submit {
     background-color: #512c62;
@@ -39,7 +43,7 @@ const DivCard = styled.div`
 const Card = ({ origin, destination, departureDate, returnDate, price }) => {
   return (
     <>
-      <DivCard>
+      <ComponenteTarjeta>
         <div>
           <h4>
             {" "}
@@ -55,7 +59,7 @@ const Card = ({ origin, destination, departureDate, returnDate, price }) => {
             {departureDate}
           </p>
         </div>
-        
+
         <div>
           <h4>
             {" "}
@@ -85,7 +89,7 @@ const Card = ({ origin, destination, departureDate, returnDate, price }) => {
           </span>
           <input className="submit" type="submit" value="Seleccionar" />
         </div>
-      </DivCard>
+      </ComponenteTarjeta>
     </>
   );
 };

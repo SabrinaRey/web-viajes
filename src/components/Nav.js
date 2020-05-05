@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 import { FaPlane, FaHotel, FaSuitcase, FaDollarSign } from "react-icons/fa";
 
 const Header = styled.header`
@@ -8,22 +9,25 @@ const Header = styled.header`
   justify-content: space-between;
   margin: 5px 0px 0px 20px;
 
-  h1 {
+  .titulo {
+    margin: 10px;
     color: #000080;
+    font-size: 30px;
+    font-weight: bolder;
+    text-decoration: none;
     span {
       color: #9966ff;
     }
   }
 
-  h1:hover {
+  .titulo:hover {
     color: #d5e1df;
   }
-  h1 span:hover {
+  .titulo span:hover {
     color: #d5e1df;
   }
 
   button {
-    font-family: "Roboto", helvetica, Arial, sans-serif;
     margin: 20px 30px;
     height: 40px;
     text-align: center;
@@ -42,7 +46,7 @@ const NavBar = styled.nav`
   height: 100px;
   justify-content: space-around;
   font-size: 15px;
-  font-family: "Roboto", helvetica, Arial, sans-serif;
+
   a {
     color: black;
     font-weight: bold;
@@ -57,9 +61,9 @@ const Nav = () => {
   return (
     <>
       <Header>
-        <h1>
+        <Link to="/" className="titulo">
           Cool<span>Trip</span>
-        </h1>
+        </Link>
         <button>
           Español{" "}
           <img
@@ -74,15 +78,15 @@ const Nav = () => {
         </button>
       </Header>
       <NavBar>
-        <a href="">
+        <Link to="/flights">
           <FaPlane /> Vuelos
-        </a>
-        <a href="">
+        </Link>
+        <Link to="/hotels">
           <FaHotel /> Hoteles
-        </a>
-        <a href="">
+        </Link>
+        <Link to="/packages">
           <FaSuitcase /> Paquetes
-        </a>
+        </Link>
       </NavBar>
     </>
   );

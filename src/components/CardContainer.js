@@ -9,65 +9,66 @@ const Resultados = styled.div`
   align-items: center;
 `;
 
-const Msje = styled.h2`
+const Msje = styled.article`
   height: 300px;
-  color: red;
-  h2:hover {
-    color: #d5e1df;
+  h2 {
+    font-size: 50px;
+    color: red;
+    h2:hover {
+      color: #d5e1df;
+    }
   }
 `;
 
 const Volver = styled.button`
   background-color: #512c62;
   box-shadow: 10px 10px 8px #888888;
+  border-radius: 5px;
   height: 30px;
   color: #fff;
   margin-left: 20px;
 `;
 
-const CardContainer = props => {
-  console.log(props);
+const CardContainer = () => {
   const [resultados, setResultados] = useState([]);
-  const [error, setError] = useState(null);
   const history = useHistory();
   const getParams = useParams();
-  const toUrlEncoded = obj =>
+  const toUrlEncoded = (obj) =>
     Object.keys(obj)
-      .map(k => encodeURIComponent(k) + "=" + encodeURIComponent(obj[k]))
+      .map((k) => encodeURIComponent(k) + "=" + encodeURIComponent(obj[k]))
       .join("&");
 
   // datos para obtener el access token
   const item = {
     grant_type: "client_credentials",
     client_id: process.env.REACT_APP_API_KEY,
-    client_secret: process.env.REACT_APP_API_KEY_SECRET
+    client_secret: process.env.REACT_APP_API_KEY_SECRET,
   };
 
   useEffect(() => {
     fetch("https://test.api.amadeus.com/v1/security/oauth2/token", {
       method: "post",
       headers: {
-        "Content-Type": "application/x-www-form-urlencoded"
+        "Content-Type": "application/x-www-form-urlencoded",
       },
-      body: toUrlEncoded(item)
+      body: toUrlEncoded(item),
     })
-      .then(res => res.json())
-      .then(data => {
+      .then((res) => res.json())
+      .then((data) => {
         fetch(
           `https://test.api.amadeus.com/v1/shopping/flight-destinations?${getParams.buscado}`,
           {
             headers: {
-              Authorization: `Bearer ${data.access_token}`
-            }
+              Authorization: `Bearer ${data.access_token}`,
+            },
           }
         )
-          .then(res => res.json())
-          .then(data => setResultados(data))
-          .catch(err => setError(err));
+          .then((res) => res.json())
+          .then((data) => setResultados(data));
       });
   }, [getParams.buscado]);
 
-  const handleClick = e => {
+  const handleClick = () => {
     history.push("/");
   };
 

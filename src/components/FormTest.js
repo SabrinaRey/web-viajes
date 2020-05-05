@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { useHistory } from "react-router-dom";
 import Info from "./Info";
 
-const FormDiv = styled.div`
+const Contened = styled.div`
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -13,8 +13,9 @@ const FormDiv = styled.div`
 
 const Formulario = styled.form`
   input {
-    height: 20px;
-    border-radius: 3px;
+    height: 30px;
+    box-sizing: border-box;
+    border-radius: 5px;
     margin: 5px;
     font-family: "Roboto", helvetica, Arial, sans-serif;
   }
@@ -23,6 +24,7 @@ const Formulario = styled.form`
   }
 
   .submit {
+    border: 2px;
     background-color: #0033cc;
     height: 30px;
     color: #fff;
@@ -40,10 +42,10 @@ const FormTest = () => {
     departureDate: "",
     returnDate: "",
     maxPrice: "",
-    oneWay: "true"
+    oneWay: "true",
   });
 
-  const createQueryParams = obj => {
+  const createQueryParams = (obj) => {
     let queryParams = JSON.stringify(obj);
     let s = "";
     for (let key in obj) {
@@ -59,19 +61,19 @@ const FormTest = () => {
   };
 
   const dayCounter = (date1, date2) => {
-    let Difference_In_Time = Date.parse(date2) - Date.parse(date1);
-    let days = Difference_In_Time / (1000 * 3600 * 24);
+    let differenceInTime = Date.parse(date2) - Date.parse(date1);
+    let days = differenceInTime / (1000 * 3600 * 24);
     return days;
   };
 
   const history = useHistory();
   const locationHome = history.location.pathname;
 
-  const handleChange = e => {
+  const handleChange = (e) => {
     setDataSearch({ ...dataSearch, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = e => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     const { origin, departureDate, returnDate, oneWay, maxPrice } = dataSearch;
     if (oneWay === "true") {
@@ -82,13 +84,13 @@ const FormTest = () => {
         departureDate,
         duration: dayCounter(departureDate, returnDate),
         maxPrice,
-        oneWay
+        oneWay,
       };
       history.push(`/results/${createQueryParams(newObj)}`);
     }
   };
   return (
-    <FormDiv>
+    <Contened>
       <Formulario onSubmit={handleSubmit}>
         <Choice>
           <input
@@ -148,7 +150,7 @@ const FormTest = () => {
         ></input>
       </Formulario>
       {locationHome === "/" && <Info />}
-    </FormDiv>
+    </Contened>
   );
 };
 

@@ -6,8 +6,8 @@ Sólo pueden realizarse busquedas utilizando códigos IATA.
 ### Se puede ver en: https://buscador-vuelos.now.sh
 
 Ejemplos de busqueda: 
-*Sólo Ida - Origen: LON - Fecha de Salida: 20/05/2020
-* Ida y Vuelta - Origen: SYD Fecha de Salida: 10/06/2020 Fecha de Regreso: 20/06/2020
+* Sólo Ida - Origen: LON - Fecha de Salida: 20/05/2020.
+* Ida y Vuelta - Origen: SYD Fecha de Salida: 10/06/2020 Fecha de Regreso: 20/06/2020.
 
 
 ### Equipo de Trabajo: 
@@ -22,9 +22,9 @@ La página se estructuró utilizando HTML,CSS y React y se comunica con la API A
 
 Para editar, es necesario descargar los archivos y ejecutar los siguientes comandos tanto en la carpeta client como en la carpeta server:
 
-npm install
-npm start
-El frontend se ejecuta en el puerto 3000.
+* npm install 
+* npm start
+* El frontend se ejecuta en el puerto 3000.
 
 ---------------------------------------------------------
 
@@ -35,8 +35,8 @@ Searches can only be carried out using IATA codes.
 ### It can be seen at: https://buscador-vuelos.now.sh
 
 Search examples: 
-*One way only - Origin: LON - Departure date: 20/05/2020
-*Roundtrip - Origin: SYD Departure Date: 10/06/2020 Return Date: 20/06/2020
+* One way only - Origin: LON - Departure date: 20/05/2020.
+* Roundtrip - Origin: SYD Departure Date: 10/06/2020 Return Date: 20/06/2020.
 
 
 ### Team members: 
@@ -51,9 +51,9 @@ The page was structured using HTML,CSS and React and communicates with the Amade
 
 To edit, it is necessary to download the files and execute the following commands in both the client and server folders:
 
-npm install
-npm start
-The frontend runs on port 3000.
+* npm install
+* npm start
+* The frontend runs on port 3000.
 
 
 

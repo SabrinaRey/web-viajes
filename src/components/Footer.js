@@ -1,9 +1,9 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const FooterDiv = styled.footer`
-  display: flex;
-  position: relative;
+ margin-bottom:15px;
   a {
     margin: 20px;
     font-family: "Roboto", helvetica, Arial, sans-serif;
@@ -19,8 +19,8 @@ const FooterDiv = styled.footer`
 const Footer = () => {
   return (
     <FooterDiv>
-      <a href=" ">Sobre Nosotras</a>
-      <a href="">Contactenos</a>
+      <Link to="/about-us">Sobre Nosotras</Link>
+      <Link to="/contact-us">Contactenos</Link>
     </FooterDiv>
   );
 };
