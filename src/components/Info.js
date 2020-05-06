@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-const ContenedorInformacion = styled.div`
+const ContenedorInformacion = styled.section`
   font-family: "Roboto", helvetica, Arial, sans-serif;
   display: flex;
    margin-top: 30px;

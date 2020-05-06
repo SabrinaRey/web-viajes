@@ -3,7 +3,7 @@ import { useParams, useHistory } from "react-router-dom";
 import Card from "./Card";
 import styled from "styled-components";
 
-const Resultados = styled.div`
+const Resultados = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;

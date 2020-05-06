@@ -41,6 +41,7 @@ const Header = styled.header`
     }
   }
 `;
+
 const NavBar = styled.nav`
   display: flex;
   height: 100px;

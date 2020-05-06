@@ -5,9 +5,9 @@ import styled from "styled-components";
 import background from "./components/img/background.jpg";
 import Nav from "./components/Nav";
 import Footer from "./components/Footer";
-import FormTest from "./components/FormTest";
+import Form from "./components/Form";
 
-const Principal = styled.div`
+const Principal = styled.main`
   border: 1px solid #000;
   background-image: url(${background});
   background-size: cover;
@@ -28,7 +28,7 @@ const App = () => {
       <Principal>
         <Nav />
         <Titulo>Encuentra el mejor destino para tu presupuesto</Titulo>
-        <Route path={`/`} component={FormTest}></Route>
+        <Route path={`/`} component={Form}></Route>
         <Route path={`/results/:buscado`} component={CardContainer}></Route>
         <Footer />
       </Principal>

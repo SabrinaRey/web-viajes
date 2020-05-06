@@ -7,7 +7,7 @@ import {
   FaCalendarAlt,
 } from "react-icons/fa";
 
-const ComponenteTarjeta = styled.div`
+const ComponenteTarjeta = styled.article`
   height: auto;
   width: 50%;
   padding: 25px;
